@@ -10,8 +10,8 @@ const schema=zod.array(zod.string());// to check the input we have is array of n
 // }
 // solution==>
     // const schema=zod.object({
-    //     email:zod.string(),
-    //     password:z.string(),
+    //     email:zod.string().email(),
+    //     password:z.string().min(8),
     // })
 
 app.get("/health-checkup", function (req,res){
