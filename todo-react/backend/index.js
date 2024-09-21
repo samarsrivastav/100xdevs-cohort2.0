@@ -2,7 +2,9 @@ const express=require("express")
 const app=express()
 const {createTodo}=require("./types.js")
 const {todo} = require("./db.js")
+const cors=require("cors")
 app.use(express.json())
+app.use(cors())
 app.post("/todo",async function(req,res){
     const createPayLoad=req.body
     const parsePayLoad=createTodo.safeParse(createPayLoad);
