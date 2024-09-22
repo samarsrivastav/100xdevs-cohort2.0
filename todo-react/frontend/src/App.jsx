@@ -11,7 +11,7 @@ function App() {
       const json = await res.json()
       setTodo(json.todos)
     })
-  },[todos])
+  },[])
   
   return (
     <>
