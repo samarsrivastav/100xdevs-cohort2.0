@@ -1,41 +1,43 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
+import { CountContext } from './context'
 
 function App() {
-  const [todo,setTodo]=useState([])
-  const [todoId,setTodoId]=useState(1)
-  useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/todos/"+todoId)
-    .then(async function (res){
-      const json=await res.json()
-      console.log(json)
-      if(Object.keys(json).length==0){
-        setTodo([])
-      }else{
-        setTodo(json)
-      }
-    })
-  },[todoId])
+  const [count,setCount]=useState(0)
   return (
     <>
-      <CardWrapper>
-      <div>
-        <h1>{todo.length==0?"Empty response":todo.title}</h1>
-        <input type="number" id='todoId' onChange={function(e){
-          const value=e.target.value
-          setTodoId(value)
-        }}/>
-      </div>
-      </CardWrapper>
+    <CountContext.Provider value={count}>
+      <Count count={count} setCount={setCount}/>
+    </CountContext.Provider>
+    
     </>
   )
 }
-function CardWrapper({children}){
+function Count({setCount}){
+  return <div>
+    <Renderer/>
+    <Buttons setCount={setCount}/>
+  </div>
+}
+function Renderer(){
+  const count=useContext(CountContext)
   return(
-    <div style={{border:"2px black solid"}}>
-        {children}
+    <div>
+      {count}
     </div>
   )
 }
-
+function Buttons({setCount}){
+  const count=useContext(CountContext)
+  return(
+    <div>
+      <button onClick={()=>{
+        setCount(count+1)
+      }}>Increase</button>
+      <button onClick={()=>{
+      setCount(count-1)
+      }}>Decrease</button>
+    </div>
+  )
+}
 export default App
