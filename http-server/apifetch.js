@@ -1,3 +1,4 @@
+const axios=require("axios")
 //method -1 
 function getAnimalData1(){
     fetch("https://fakerapi.it/api/v1/persons")
@@ -14,4 +15,21 @@ async function getAnimalData2(){
     const data =await  response.json()
     console.log(data)
 }
-getAnimalData2()
+// getAnimalData2()
+
+//method -3 (Axios)
+async function getAnimalDataAxios(){
+    const response=await axios.get("https://fakerapi.it/api/v1/persons")
+
+    // const response=await axios.get("https://fakerapi.it/api/v1/persons",{
+    // headers:{
+    //   Authorization:"Bearer 123"
+    //      }
+    // })
+
+    // const response=await axios.put("https://fakerapi.it/api/v1/persons")
+    // const response=await axios.post("https://fakerapi.it/api/v1/persons")
+    // const response=await axios.delete("https://fakerapi.it/api/v1/persons")
+    console.log(response.data)
+}
+getAnimalDataAxios()
