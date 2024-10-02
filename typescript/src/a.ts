@@ -15,8 +15,8 @@ run(function(){
 interface User{
     firstName:string,
     lastName:string,
-    age:number,
-    email?:string //optional...user can choose not to provide
+    age?:number,//optional...user can choose not to provide
+    email:string 
 }
 function isLegal(user:User){
     //how we call
