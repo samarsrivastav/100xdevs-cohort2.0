@@ -1,50 +1,60 @@
 import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient()
 
-const prisma =new PrismaClient()
-
-//create 
-async function insertUser (username: string, password: string, firstName: string, lastName:string) {
-    const res= await prisma.user.create({
-      data:{
-        email:username,
+async function insertUser(username: string, password: string, firstName: string, lastName: string) {
+  const res= await prisma.user.create({
+    data:{
+        username,
         password,
         firstName,
         lastName
-      }  
-    })
-    console.log(res)
+    }
+  })
+}
+interface UpdateParams {
+    firstName: string;
+    lastName: string;
 }
 
-//update 
-interface UpdateParams{
-    firstName:string,
-    lastName:string,
-}
-async function updateUser(username:string,{
+async function updateUser(username: string, {
     firstName,
     lastName
-}:UpdateParams) {
-    const res=await prisma.user.update({
+}: UpdateParams) {
+  const res=await prisma.user.update({
+    where:{
+        username
+    },
+    data:{
+        firstName,
+        lastName
+    }
+  })
+}
+async function getUser(username: string) {
+  const res=await prisma.user.findUnique({
+    where:{
+        username
+    }
+  })
+}
+async function getTodos(userId: number, ) { // get todo of the user
+    const res= await prisma.todo.findMany({
         where:{
-            email:username
-        },
-        data:{
-            firstName,
-            lastName
+            userId:userId
         }
     })
-    console.log(res)
 }
-
-//delete 
-async function deleteUser(username:string) {
-    const res=await prisma.user.delete({
-        where:{email:username}
+//get the todo and user details
+async function getTodoAndDetails(userId:number) {
+    const res=await prisma.todo.findMany({
+        where:{
+            userId:userId
+        },
+        select:{ // what to output
+            id:true,
+            title:true,
+            description:true,
+            user:true // this will tell that we need user having this todo
+        }
     })
 }
-//read all data
-async function getAllUser() {
-    const res=await prisma.user.findMany()
-    console.log(res)
-}
-
