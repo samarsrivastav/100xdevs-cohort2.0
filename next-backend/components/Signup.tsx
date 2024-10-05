@@ -1,5 +1,4 @@
 "use client"
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useState } from "react";
 import {signup} from "@/app/actions/user"
@@ -26,7 +25,7 @@ export function Signup() {
                         }} label="Password" type={"password"} placeholder="123456" />
                         <button onClick={async () => {
                             try{
-                               const res=JSON.stringify( await signup(username,password));
+                               JSON.stringify( await signup(username,password));
                                 router.push("/")
                             }catch{
                                 console.log("\n\nerror---------")

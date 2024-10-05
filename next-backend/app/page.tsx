@@ -6,14 +6,19 @@ async function getUserDetails() {
   const res=await client.user.findMany()
   return res
 }
+interface userItem{
+  id: number;
+  username: string;
+  password: string;
 
+}
 export default async function Home() {
   const userData = await getUserDetails();
   return (
     <>
     <div className=" m-3 ">
       {(userData) && (userData).length > 0 ? (
-          (userData).map((item: any) => (
+          (userData).map((item: userItem) => (
             <div className="flex flex-col " key={item.id}>
               <div className="">
                 <div className="border p-8 rounded">
