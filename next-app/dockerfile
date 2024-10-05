@@ -1,0 +1,14 @@
+FROM node:22
+
+WORKDIR /app 
+#docker run -p port:port -v ./app:/app/app next-image
+# first app is the directory where changes will occur -> in the local machine
+#second app is the workdir initialized earlier in the container
+#last app is the app folder inside the container
+COPY package* .
+
+RUN npm install
+
+COPY . .
+
+CMD [ "npm","run","dev" ]
