@@ -253,3 +253,14 @@
 - Week 22.3 Indexing in Databases
 - Week 22.4 Normalisation In Databases
    - [Slide](https://projects.100xdevs.com/tracks/hor-ver-scaling/Horizontal-and-vertical-scaling--Indexes-in-DBs-1)
+
+## Week 23 WebRtC
+- Week 23.1 WebRtC
+- Week 23.2 | WebRTC, Setting up Project, 0-1 farewell
+   - [Slide](https://projects.100xdevs.com/tracks/webrtc-1/WebRTC-Basic-implementation--advance-discussion-1)
+
+## Week 24 GRPC, Testing
+- Week 24.1 | GRPC
+- Week 24.2 | Testing in MERN Stack
+- Week 24.3 | Testing from scratch (Offline video)
+   - [Slide]()
