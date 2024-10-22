@@ -1,13 +1,5 @@
-import { GameManager } from "./store";
-import { startLogger } from "./logger";
-
-startLogger();
+import { PubSubManager } from "./PubSubManager";
 
 setInterval(() => {
-    GameManager.getInstance().addGame({
-        id: Math.random().toString(),
-        "whitePlayer": "harkirat",
-        "blackPlayer": "jaskirat",
-        moves: []
-    })
+    PubSubManager.getInstance().userSubscribe(Math.random().toString(), "APPL");
 }, 5000)
