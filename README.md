@@ -264,3 +264,18 @@
 - Week 24.2 | Testing in MERN Stack
 - Week 24.3 | Testing from scratch (Offline video)
    - [Slide]()
+
+## Week 25 Integration and End to End Tests
+- Week 25.1 | Integration and End to End Tests
+
+## Week 26 Monitoring, Grafana and Prometeus
+- Week 26.1 | Monitoring, Logging and Newrelic
+- Week 26.2 | Prometheus and Grafana
+- Week 26.2 | Prometheus and Grafana
+- Week 26.4 | Monitoring using Prometheus and Grafana Part-2
+   - [Slide]()
+
+## Week 27 Kubernetes
+- Week 27.1 | Kubernetes Part-1
+- Week 27.2 | Kubernetes Part-2
+   - [Slide]()
